@@ -7,19 +7,9 @@ variable "bx_api_key" {
   description = "Your Bluemix API key."
 }
 
-variable "bx_org_guid" {
-  type        = "string"
-  description = "Your Bluemix org GUID."
-}
-
 variable "bx_space_guid" {
   type        = "string"
   description = "Your Bluemix space GUID."
-}
-
-variable "bx_account_guid" {
-  type        = "string"
-  description = "Your Bluemix account GUID."
 }
 
 data "ibm_app_route" "route" {
@@ -38,7 +28,7 @@ resource "ibm_app" "app" {
   space_guid   = "${var.bx_space_guid}"
   app_path     = "hello.zip"
   buildpack    = "sdk-for-nodejs"
-  route_guid   = ["${data.ibm_app_route.route.id}"]
+  route_guid   = ["rvennam-tf-cftest"]
 }
 
 data "ibm_app_domain_shared" "domain" {
