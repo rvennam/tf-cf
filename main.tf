@@ -34,11 +34,6 @@ resource "ibm_app" "app" {
   buildpack    = "sdk-for-nodejs"
 }
 
-data "ibm_space" "spacedata" {
-  space = "space"
-  org   = "someexample.com"
-}
-
 data "ibm_app_domain_shared" "domain" {
   name = "mybluemix.net"
 }
