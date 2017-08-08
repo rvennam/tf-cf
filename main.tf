@@ -32,5 +32,5 @@ resource "ibm_app" "app" {
   space_guid   = "${var.bx_space_guid}"
   app_path     = "hello.zip"
   buildpack    = "sdk-for-nodejs"
-  route_guid   = ["${data.ibm_app_route.route.id}"]
+  route_guid   = ["${ibm_app_route.route.id}"]
 }
