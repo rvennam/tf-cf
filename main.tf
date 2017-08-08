@@ -33,3 +33,23 @@ resource "ibm_app" "app" {
   app_path     = "hello.zip"
   buildpack    = "sdk-for-nodejs"
 }
+
+data "ibm_space" "spacedata" {
+  space = "space"
+  org   = "someexample.com"
+}
+
+data "ibm_app_domain_shared" "domain" {
+  name = "mybluemix.net"
+}
+
+data "ibm_space" "spacedata" {
+  space = "dev"
+  org   = "rvennam@us.ibm.com"
+}
+
+resource "ibm_app_route" "route" {
+  domain_guid = "${data.ibm_app_domain_shared.domain.id}"
+  space_guid  = "${data.ibm_space.spacedata.id}"
+  host        = "rvennam-tf-cf"
+}
