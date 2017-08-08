@@ -28,7 +28,7 @@ resource "ibm_app" "app" {
   space_guid   = "${var.bx_space_guid}"
   app_path     = "hello.zip"
   buildpack    = "sdk-for-nodejs"
-  route_guid   = ["rvennam-tf-cftest"]
+  route_guid   = ["rvennam-tf-cftest.mybluemix.net"]
 }
 
 data "ibm_app_domain_shared" "domain" {
