@@ -31,6 +31,5 @@ resource "ibm_app" "app" {
   name         = "rvennam-tf-app"
   space_guid   = "${var.bx_space_guid}"
   app_path     = "hello.zip"
-  wait_timeout = 90
   buildpack    = "sdk-for-nodejs"
 }
